@@ -1,0 +1,17 @@
+<!-- index.html snippet -->
+<script src="https://sdk.cashfree.com/js/v3/cashfree.js"></script>
+<script type="module">
+  import { payNow } from './site.js';
+
+  document.getElementById('btnPayOnline').addEventListener('click', () => {
+    const amt = parseFloat(document.getElementById('amount').value || '0');
+    const uid = parseInt(document.getElementById('customer_id').value || '0');
+    payNow({ amount: amt, customer_id: uid, purpose: 'order' });
+  });
+
+  document.getElementById('btnWalletAdd').addEventListener('click', () => {
+    const amt = parseFloat(document.getElementById('amount').value || '0');
+    const uid = parseInt(document.getElementById('customer_id').value || '0');
+    payNow({ amount: amt, customer_id: uid, purpose: 'wallet' });
+  });
+</script>
